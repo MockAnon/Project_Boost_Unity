@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Rocket : MonoBehaviour {
+    [SerializeField]float rcsThrust = 100f;
+    [SerializeField] float mainThrust = 100f;
 
     Rigidbody rigidBody;
     AudioSource audioSource;
@@ -17,30 +19,42 @@ public class Rocket : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //print("update");
-        ProcessInput();
+        Rotate();
+        Thrust();
+
 	}
 
-    void ProcessInput()
+    private void Thrust()
     {
-        if (Input.GetKey(KeyCode.Space)) 
+        if (Input.GetKey(KeyCode.Space))
         {
-            rigidBody.AddRelativeForce(Vector3.up);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
-            else 
-            {
-                audioSource.Stop();
-            }
+            rigidBody.AddRelativeForce(Vector3.up * mainThrust);
+            //if (!audioSource.isPlaying)
+            //{
+            //    audioSource.Play();
+            //}
+            //else
+            //{
+            //    audioSource.Stop();
+            //}
         }
+    }
+
+    void Rotate()
+    {
+        rigidBody.freezeRotation = true; // manual control of rotation.
+
+        float rotationSpeed = rcsThrust * Time.deltaTime;
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.forward);
+            transform.Rotate(Vector3.forward * rotationSpeed);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(-Vector3.forward);
+            transform.Rotate(-Vector3.forward * rotationSpeed);
         }
+        rigidBody.freezeRotation = false;
     }
+
+
 }
