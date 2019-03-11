@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -89,7 +89,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: 96d6bdbb20d134276ad8d22c0cb28274,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -150,7 +151,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4641895927670160, guid: 49b53713f614f47a4b4b0dbd7dd0b89c, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49b53713f614f47a4b4b0dbd7dd0b89c, type: 2}
@@ -378,6 +379,10 @@ Prefab:
       propertyPath: m_Name
       value: Blocker (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1138370011835402, guid: 49b53713f614f47a4b4b0dbd7dd0b89c, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49b53713f614f47a4b4b0dbd7dd0b89c, type: 2}
   m_IsPrefabParent: 0
@@ -570,11 +575,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 54283326891983130, guid: 9ff690ee06ef14cb687c4697b6b6f625,
-        type: 2}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ff690ee06ef14cb687c4697b6b6f625, type: 2}
   m_IsPrefabParent: 0
@@ -616,6 +616,10 @@ Prefab:
     - target: {fileID: 4213414711023658, guid: 627593f5a242842fab8fba448fb487c9, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213414711023658, guid: 627593f5a242842fab8fba448fb487c9, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 9.878555
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 627593f5a242842fab8fba448fb487c9, type: 2}
