@@ -34,5 +34,5 @@ public class Oscillator : MonoBehaviour
 
         Vector3 offset = movementVector * movementFactor;
         transform.position = startingPos + offset;
-    }
+    }  
 }
