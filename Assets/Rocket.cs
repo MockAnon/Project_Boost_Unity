@@ -25,6 +25,8 @@ public class Rocket : MonoBehaviour {
     enum State { Alive, Dying, Transcending }
     State state = State.Alive;
 
+    bool collisionsDisabled = false;
+
 	// Use this for initialization
 	void Start () {
         rigidBody = GetComponent<Rigidbody>();
@@ -32,18 +34,39 @@ public class Rocket : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if (state == State.Alive){
+	void Update () 
+    {
+        if (state == State.Alive)
+        {
         //print("update");
         RespondToRotateInput();
         RespondToThrustInput();
         }
+        if (Debug.isDebugBuild) 
+        {
+            RespondToDebugKeys();
+        }
+
 
 	}
 
+    private void RespondToDebugKeys() 
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+
+        }
+
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionsDisabled = !collisionsDisabled; //toggle
+        }
+    }
+
     void OnCollisionEnter(Collision collision) 
     {
-        if (state != State.Alive) { return; } //ignore collisions
+        if (state != State.Alive || collisionsDisabled) { return; } //ignore collisions
 
         switch (collision.gameObject.tag)
         {
